@@ -57,6 +57,9 @@
   --primary: oklch(0.701 0.198 33.56);
   --primary-foreground: oklch(1 0 0); /* White text on orange */
 
+  --dark: [#1D2026];
+  --dark-text: oklch(0.129 0.042 264.695); /* Dark text color */
+
   --secondary: oklch(0.957 0.045 36.8);
   --secondary-foreground: oklch(0.701 0.198 33.56); /* Orange text on peach */
 

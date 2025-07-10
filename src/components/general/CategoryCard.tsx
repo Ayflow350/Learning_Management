@@ -21,7 +21,7 @@ const CategoryCard = ({
   return (
     <a
       href="#"
-      className={`group flex max-w-[412px] items-center p-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${backgroundColor}`}
+      className={`group flex items-center p-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 w-full max-w-[412px] justify-self-center ${backgroundColor}`}
     >
       <div
         className={`flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-lg transition-colors duration-300 bg-white`}

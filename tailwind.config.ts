@@ -31,26 +31,9 @@ const config: Config = {
 
       colors: {
         primary: "#FF6636",
-        "primary-light": "#FFEEE8",
-        "DARK-1": "#1D2026",
-        "DARK-2": "#6E7485",
-
-        // Background Colors
-        "cat-lavender": "#E0E7FF",
-        "cat-green": "#D1FAE5",
-        "cat-peach": "#FFE4E6",
-        "cat-sky": "#E0F2FE",
-        "cat-rose": "#FFE4E6",
-        "cat-amber": "#FEF3C7",
-
-        // === START: NEW BORDER COLORS ===
-        "cat-lavender-border": "#C7D2FE",
-        "cat-green-border": "#A7F3D0",
-        "cat-peach-border": "#FECDD3",
-        "cat-sky-border": "#BAE6FD",
-        "cat-rose-border": "#FECDD3",
-        "cat-amber-border": "#FDE68A",
-        // === END: NEW BORDER COLORS ===
+        dark: "#1D2026",
+        paragraph: "#6E7485",
+        primaryLight: "#FFEEE8",
       },
       animation: {
         float: "float 4s ease-in-out infinite",

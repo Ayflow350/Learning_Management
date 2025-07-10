@@ -54,8 +54,9 @@ const categoryData = [
     title: "Personal Development",
     count: "20,126 Courses",
     icon: <HardHat />,
-    bgColor: "bg-primary-light",
-    iconColor: "text-primary",
+    bgColor: "bg-[#E1F7E3]",
+    iconColor: "text-green-500",
+
     iconBgColor: "bg-orange-200",
   },
   {
