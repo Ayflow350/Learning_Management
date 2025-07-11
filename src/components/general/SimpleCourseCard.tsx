@@ -18,10 +18,10 @@ const SimpleCourseCard = ({
     <div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className="bg-white rounded-lg shadow-md overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col"
+      className="flex h-full  flex-col overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl"
     >
-      <a href="#" className="block h-full flex flex-col">
-        <div className="relative w-full h-44">
+      <a href="#" className="flex h-full flex-col">
+        <div className="relative h-52 w-full flex-shrink-0">
           <Image
             src={course.imageUrl}
             alt={course.title}
@@ -30,28 +30,34 @@ const SimpleCourseCard = ({
             className="transition-transform duration-300 group-hover:scale-105"
           />
         </div>
-        <div className="p-4 flex flex-col flex-grow">
-          <div className="flex justify-between items-center mb-2">
+
+        <div className="flex flex-grow flex-col p-4  lg:h-[170px]">
+          <div className="mb-2 lg:mb-4 flex items-center justify-between">
             <span
-              className={`text-xs font-semibold uppercase px-2 py-1 rounded ${course.categoryColor}`}
+              className={`rounded px-2 py-1 text-xs font-semibold uppercase ${course.categoryColor}`}
             >
               {course.category}
             </span>
-            <span className="text-lg font-bold text-primary">
+            <span className="text-lg font-medium text-primary">
               ${course.price.toFixed(2)}
             </span>
           </div>
-          <h3 className="text-md font-bold text-dark-text leading-tight flex-grow">
+
+          <h3 className="flex-grow text-[15px] font-medium leading-tight text-[#1D2026]">
             {course.title}
           </h3>
-          <div className="flex justify-between items-center text-sm text-gray-500 border-t pt-3 mt-3">
+
+          <div className="mt-3 flex items-center justify-between border-t pt-3 text-sm text-gray-500">
             <div className="flex items-center">
-              <Star className="w-4 h-4 text-amber-400 fill-amber-400 mr-1" />
+              <Star className="mr-1 h-4 w-4 fill-amber-400 text-amber-400" />
               <span>{course.rating.toFixed(1)}</span>
             </div>
             <div className="flex items-center">
-              <Users className="w-4 h-4 mr-1" />
-              <span>{course.students} students</span>
+              <Users className="mr-1 h-4 w-4  text-[#564FFD]" />
+              <div className="text-[#4E5566]">
+                {course.students}{" "}
+                <span className="text-[#8C94A3]">students</span>
+              </div>
             </div>
           </div>
         </div>

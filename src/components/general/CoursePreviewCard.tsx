@@ -7,7 +7,7 @@ import {
   BarChart3,
   Clock,
   Heart,
-  CheckCircle2,
+  Check,
   ShoppingCart,
 } from "lucide-react";
 import { Course } from "@/types/course";
@@ -25,7 +25,7 @@ const CoursePreviewCard = ({ course }: { course: Course }) => {
       >
         {course.category}
       </span>
-      <h3 className="text-lg font-bold text-dark-text leading-tight">
+      <h3 className="text-lg font-medium text-dark-text leading-tight">
         {course.title}
       </h3>
       <div className="flex items-center text-sm text-gray-600">
@@ -43,20 +43,20 @@ const CoursePreviewCard = ({ course }: { course: Course }) => {
       </div>
       <div className="flex items-center justify-between text-sm text-gray-600">
         <div className="flex items-center gap-1">
-          <Users size={16} />
+          <Users size={16} className="text-[#564FFD]" />
           {course.students} students
         </div>
         <div className="flex items-center gap-1.5">
-          <BarChart3 size={16} />
+          <BarChart3 size={16} className="text-[#E34444]" />
           {course.level}
         </div>
         <div className="flex items-center gap-1.5">
-          <Clock size={16} />
+          <Clock size={16} className="text-[#23BD33]" />
           {course.duration}
         </div>
       </div>
       <div className="flex items-end gap-4 mb-2">
-        <span className="text-3xl font-bold text-dark-text">
+        <span className="text-2xl font-normal text-dark-text">
           ${course.price.toFixed(2)}
         </span>
         {course.originalPrice && (
@@ -65,7 +65,7 @@ const CoursePreviewCard = ({ course }: { course: Course }) => {
           </span>
         )}
         {discount > 0 && (
-          <span className="text-sm font-bold text-red-500 bg-red-100 px-2 py-1 rounded-md">
+          <span className="text-sm font-bold text-primary bg-[#FFEEE8] px-2 py-1 rounded-md">
             {discount}% OFF
           </span>
         )}
@@ -87,7 +87,7 @@ const CoursePreviewCard = ({ course }: { course: Course }) => {
               key={index}
               className="flex items-start gap-2 text-sm text-gray-600"
             >
-              <CheckCircle2
+              <Check
                 size={16}
                 className="text-green-500 mt-0.5 flex-shrink-0"
               />
@@ -96,6 +96,7 @@ const CoursePreviewCard = ({ course }: { course: Course }) => {
           ))}
         </ul>
       </div>
+      <hr className="py-2" />
       <div className="mt-auto flex flex-col gap-2">
         <Button size="lg" className="w-full bg-primary hover:bg-orange-700">
           <ShoppingCart size={18} className="mr-2" /> Add To Cart

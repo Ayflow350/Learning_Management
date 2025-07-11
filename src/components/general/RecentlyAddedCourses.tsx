@@ -14,7 +14,7 @@ const coursesData: Course[] = [
     imageUrl:
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071",
     category: "Design",
-    categoryColor: "text-pink-600 bg-pink-100",
+    categoryColor: "text-[#993D20] bg-[#FFEEE8]",
     title: "The Python Mega Course: Build 10 Real World Applications",
     price: 57,
     rating: 5.0,
@@ -37,7 +37,7 @@ const coursesData: Course[] = [
     imageUrl:
       "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070",
     category: "IT & Software",
-    categoryColor: "text-red-600 bg-red-100",
+    categoryColor: "text-[#882929] bg-[#FFF0F0]",
     title: "Facebook Ads & Facebook Marketing MASTERY 2021",
     price: 57,
     rating: 4.8,
@@ -60,7 +60,7 @@ const coursesData: Course[] = [
     imageUrl:
       "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070",
     category: "Developments",
-    categoryColor: "text-blue-600 bg-blue-100",
+    categoryColor: "text-[#342F98] bg-[#EBEBFF]",
     title: "2021 Complete Python Bootcamp From Zero to Hero",
     price: 14.0,
     originalPrice: 26.0,
@@ -84,7 +84,7 @@ const coursesData: Course[] = [
     imageUrl:
       "https://images.unsplash.com/photo-1580894732444-8ecded794825?q=80&w=2070",
     category: "Lifestyle",
-    categoryColor: "text-purple-600 bg-purple-100",
+    categoryColor: "text-[#65390C] bg-[#FFF2E5]",
     title: "Google Analytics Certification - Learn How To Pass The Exam",
     price: 57,
     rating: 5.0,
@@ -160,7 +160,7 @@ const RecentlyAddedCourses = () => {
     <section className="bg-white py-24 sm:py-32">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-extrabold text-dark-text">
+          <h2 className="text-4xl font-semibold text-[#1D2026]">
             Recently added courses
           </h2>
         </div>
@@ -180,7 +180,7 @@ const RecentlyAddedCourses = () => {
             ))}
           </div>
 
-          <div className="hidden lg:block absolute top-0 left-0 w-full h-full pointer-events-none">
+          <div className="hidden lg:block absolute top-0 left-0 w-full h-full  lg:h-[338px] pointer-events-none">
             <AnimatePresence>
               {hoveredCourse && (
                 <motion.div
