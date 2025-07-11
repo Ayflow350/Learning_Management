@@ -55,7 +55,9 @@ const CourseCard = ({
               <Star className="w-4 h-4 text-amber-400 fill-amber-400 mr-1" />
               <span>{rating.toFixed(1)}</span>
             </div>
-            <span>{students} students</span>
+            <div>
+              {students} <span className="text-[#8C94A3]">students</span>{" "}
+            </div>
           </div>
         </div>
       </a>
