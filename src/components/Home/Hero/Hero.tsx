@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Play, Pencil } from "lucide-react";
 import InstructorCard from "./InstructorCard";
 import AcadiaBlob from "./AcadiaBlob";
-import { FinalHeroDecorations } from "../general/FinalDecorations";
+import { FinalHeroDecorations } from "./FinalDecorations";
 
 // --- Local SVG Components for this Hero Section ---
 const OrangeSwoosh = () => (

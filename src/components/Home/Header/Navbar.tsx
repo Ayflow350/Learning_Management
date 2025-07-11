@@ -5,7 +5,7 @@ import { Search, Bell, Heart, ShoppingCart, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetTrigger } from "@/components/ui/sheet";
-import { SideMenu } from "./SideMenu"; // Import your new SideMenu
+import { SideMenu } from "../general/SideMenu"; // Import your new SideMenu
 
 const Navbar = () => {
   return (

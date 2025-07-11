@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Course } from "@/types/course";
-import SimpleCourseCard from "./SimpleCourseCard";
+import SimpleCourseCard from "../SimpleCourseCard";
 import CoursePreviewCard from "./CoursePreviewCard";
 
 const coursesData: Course[] = [
@@ -204,7 +204,7 @@ const RecentlyAddedCourses = () => {
         <div className="text-center mt-12">
           <Button
             variant="secondary"
-            className="h-12 px-6 bg-primary-light text-primary hover:bg-orange-200/60"
+            className="h-12 px-6 bg-[#FFEEE8] font-semibold rounded-none text-[16px] text-primary hover:bg-orange-200/60"
           >
             Browse All Course
             <ArrowRight className="ml-2 h-4 w-4" />

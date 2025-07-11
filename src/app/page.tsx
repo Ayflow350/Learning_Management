@@ -1,9 +1,9 @@
-import BestSellingCourses from "@/components/general/BestSellingCourses";
-import Categories from "@/components/general/Categories";
-import FeaturedCourses from "@/components/general/FeaturedCourses";
-import Hero from "@/components/general/Hero";
-import Navbar from "@/components/general/Navbar";
-import RecentlyAddedCourses from "@/components/general/RecentlyAddedCourses";
+import BestSellingCourses from "@/components/general/BestSellingCourse/BestSellingCourses";
+import Categories from "@/components/general/Categories/Categories";
+import FeaturedCourses from "@/components/general/FeaturedCourses/FeaturedCourses";
+import Hero from "@/components/general/Hero/Hero";
+import Navbar from "@/components/Header/Navbar";
+import RecentlyAddedCourses from "@/components/general/RecentlyAdded/RecentlyAddedCourses";
 
 export default function Home() {
   return (
