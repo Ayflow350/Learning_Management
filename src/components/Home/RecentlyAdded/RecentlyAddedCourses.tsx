@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Course } from "@/types/course";
-import SimpleCourseCard from "../SimpleCourseCard";
+import SimpleCourseCard from "./SimpleCourseCard";
 import CoursePreviewCard from "./CoursePreviewCard";
 
 const coursesData: Course[] = [

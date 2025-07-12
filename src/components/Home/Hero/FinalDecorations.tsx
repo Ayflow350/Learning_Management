@@ -1,71 +1,8 @@
 // src/general/FinalDecorations.tsx
-import React from "react";
+"use client";
 
-// Green dashes extracted from the provided SVG
-const GreenDashes = () => (
-  <svg
-    width="65"
-    height="73"
-    viewBox="0 0 65 73"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M11.2588 3.51465L3.79999 10.9734"
-      stroke="#FDBA74"
-      strokeWidth="3"
-      strokeLinecap="round"
-    />
-    <path
-      d="M22.0449 10.0576L14.5861 17.5164"
-      stroke="#FDBA74"
-      strokeWidth="3"
-      strokeLinecap="round"
-    />
-    <path
-      d="M32.8311 16.6006L25.3723 24.0594"
-      stroke="#FDBA74"
-      strokeWidth="3"
-      strokeLinecap="round"
-    />
-    <path
-      d="M21.5869 24.5146L14.1281 31.9734"
-      stroke="#FDBA74"
-      strokeWidth="3"
-      strokeLinecap="round"
-    />
-    <path
-      d="M32.373 31.0576L24.9142 38.5164"
-      stroke="#FDBA74"
-      strokeWidth="3"
-      strokeLinecap="round"
-    />
-    <path
-      d="M43.1592 37.6006L35.7004 45.0594"
-      stroke="#FDBA74"
-      strokeWidth="3"
-      strokeLinecap="round"
-    />
-    <path
-      d="M42.7012 51.5146L35.2424 58.9734"
-      stroke="#FDBA74"
-      strokeWidth="3"
-      strokeLinecap="round"
-    />
-    <path
-      d="M53.4873 58.0576L46.0285 65.5164"
-      stroke="#FDBA74"
-      strokeWidth="3"
-      strokeLinecap="round"
-    />
-    <path
-      d="M64.2734 64.6006L56.8146 72.0594"
-      stroke="#FDBA74"
-      strokeWidth="3"
-      strokeLinecap="round"
-    />
-  </svg>
-);
+import Image from "next/image";
+import React from "react";
 
 // A darker, more desaturated orange for the swoosh
 const MutedOrangeSwoosh = () => (
@@ -88,16 +25,63 @@ const MutedOrangeSwoosh = () => (
 export const FinalHeroDecorations = () => {
   return (
     <>
-      {/* === THIS IS THE NEW ADDITION === */}
       {/* Top-left "rain" / dashes with a float animation */}
-      <div className="absolute top-24 left-1/4 animate-float [animation-delay:-1s] hidden lg:block">
-        <GreenDashes />
+      <div
+        className="absolute top-3 left-10 hidden lg:block"
+        style={{
+          animation: "floatY 3s ease-in-out infinite",
+          animationDelay: "-1s",
+        }}
+      >
+        <Image
+          src={"/Hero/twist.png"}
+          alt="Green Dashes"
+          width={65}
+          height={23}
+          className="h-full w-full"
+        />
       </div>
 
-      {/* Right-side "marker writing" */}
-      <div className="absolute bottom-20 right-10 animate-float [animation-delay:-1.5s] hidden lg:block">
+      {/* Right-side "marker writing" with a float animation */}
+      <div
+        className="absolute  top-[25%] right-[45%] hidden lg:block"
+        style={{
+          animation: "floatY 4s ease-in-out infinite",
+          animationDelay: "-1.5s",
+        }}
+      >
+        <Image
+          src={"/Hero/thumb.png"}
+          alt="Green Dashes"
+          width={65}
+          height={23}
+          className="h-full w-full"
+        />
+      </div>
+
+      {/* Right-side "marker writing" with a float animation */}
+      <div
+        className="absolute bottom-20 right-10 hidden lg:block"
+        style={{
+          animation: "floatY 4s ease-in-out infinite",
+          animationDelay: "-1.5s",
+        }}
+      >
         <MutedOrangeSwoosh />
       </div>
+
+      {/* Inline keyframes for floating animation */}
+      <style jsx global>{`
+        @keyframes floatY {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+      `}</style>
     </>
   );
 };
