@@ -1,8 +1,15 @@
-// src/components/SideMenu.tsx
+"use client";
+
 import React from "react";
 import { SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import {
   Computer,
   Brush,
@@ -10,6 +17,11 @@ import {
   BarChart,
   BookOpen,
   LifeBuoy,
+  Home,
+  BookCopy,
+  Info,
+  Mail,
+  UserPlus,
 } from "lucide-react";
 
 // A reusable navigation link component
@@ -60,14 +72,37 @@ export const SideMenu = () => {
 
       {/* Main Navigation Links */}
       <nav className="flex-1 p-4 space-y-1">
-        <p className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-          Categories
-        </p>
-        <NavLink icon={<Computer size={20} />}>Web Development</NavLink>
-        <NavLink icon={<Brush size={20} />}>Design</NavLink>
-        <NavLink icon={<Megaphone size={20} />}>Marketing</NavLink>
-        <NavLink icon={<BarChart size={20} />}>Data Science</NavLink>
-        <NavLink icon={<BookOpen size={20} />}>Personal Development</NavLink>
+        {/* --- START: ADJUSTMENT 1 --- */}
+        {/* Main header links are now included in the sidebar */}
+        <NavLink icon={<Home size={20} />}>Home</NavLink>
+        <NavLink icon={<BookCopy size={20} />}>Courses</NavLink>
+        <NavLink icon={<Info size={20} />}>About</NavLink>
+        <NavLink icon={<Mail size={20} />}>Contact</NavLink>
+        <NavLink icon={<UserPlus size={20} />}>Become an Instructor</NavLink>
+
+        <Separator className="my-4" />
+
+        {/* --- START: ADJUSTMENT 2 --- */}
+        {/* The Categories list is now a collapsible dropdown */}
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="item-1" className="border-b-0">
+            <AccordionTrigger className="p-3 text-sm font-semibold text-gray-500 uppercase tracking-wider hover:no-underline hover:bg-gray-100 rounded-lg">
+              Categories
+            </AccordionTrigger>
+            <AccordionContent className="pl-4 pt-2">
+              <div className="space-y-1">
+                <NavLink icon={<Computer size={20} />}>Web Development</NavLink>
+                <NavLink icon={<Brush size={20} />}>Design</NavLink>
+                <NavLink icon={<Megaphone size={20} />}>Marketing</NavLink>
+                <NavLink icon={<BarChart size={20} />}>Data Science</NavLink>
+                <NavLink icon={<BookOpen size={20} />}>
+                  Personal Development
+                </NavLink>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+        {/* --- END: ADJUSTMENTS --- */}
       </nav>
 
       <Separator />
