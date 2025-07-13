@@ -154,11 +154,11 @@ const Categories = () => {
   return (
     <section
       id="categories-section"
-      className={`bg-white py-24 sm:py-32 ${isMobile ? "pt-40" : ""}`} // Added conditional paddingTop
+      className="bg-white py-12 md:py-14 lg:py-32 " // Added conditional paddingTop
     >
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-semibold text-[#1D2026]">
+          <h2 className=" text-3xl md:text-4xl font-semibold text-[#1D2026]">
             Browse top category
           </h2>
         </div>

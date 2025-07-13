@@ -37,11 +37,11 @@ const BecomeInstructor = () => {
               </div>
 
               {/* Image Layer (positioned absolutely to bleed out) */}
-              <div className="absolute -right-16 bottom-0 z-0 hidden h-auto w-[320px] md:block lg:w-[420px] lg:-right-24">
+              <div className="absolute -right-16 bottom-0 z-0 hidden h-auto w-[420px] md:block lg:w-[420px] lg:-right-24">
                 <Image
                   src="/instructors.png" // Use your transparent PNG image
                   alt="A smiling instructor pointing towards the text content"
-                  width={420}
+                  width={620}
                   height={630}
                   priority
                 />

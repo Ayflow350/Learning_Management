@@ -120,7 +120,7 @@ const BestSellingCourses = () => {
   };
 
   return (
-    <section className="bg-gray-50 py-24 sm:py-32">
+    <section className="bg-gray-50 py-12 md:py-14 lg:py-32 ">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-semibold text-[#1D2026]">
