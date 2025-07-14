@@ -1,5 +1,215 @@
 import { Course } from "@/types/course";
 
+// --- Your original, hand-picked data ---
+const initialCourses: Course[] = [
+  {
+    id: 1,
+    imageUrl: "/courses/course1.svg", // You will provide this image
+    category: "IT & Software",
+    categoryColor: "text-red-600 bg-red-100",
+    title: "Learn Python Programming Masterclass",
+    price: 35,
+    rating: 4.0,
+    students: "211,434",
+  },
+  {
+    id: 2,
+    imageUrl: "/courses/course2.svg",
+    category: "Design",
+    categoryColor: "text-pink-600 bg-pink-100",
+    title: "Complete Blender Creator: Learn 3D Modelling for Beginners",
+    price: 49,
+    rating: 4.9,
+    students: "197,637",
+  },
+  {
+    id: 3,
+    imageUrl: "/courses/course3.svg",
+    category: "Developments",
+    categoryColor: "text-blue-600 bg-blue-100",
+    title: "Adobe Premiere Pro CC – Advanced Training Course",
+    price: 32,
+    rating: 4.8,
+    students: "236,568",
+  },
+  {
+    id: 4,
+    imageUrl: "/courses/course4.svg",
+    category: "Marketing",
+    categoryColor: "text-indigo-600 bg-indigo-100",
+    title: "Ultimate AWS Certified Solutions Architect Associate 2021",
+    price: 13,
+    rating: 4.1,
+    students: "511,123",
+  },
+  // Row 2
+  {
+    id: 5,
+    imageUrl: "/courses/course5.svg",
+    category: "Design",
+    categoryColor: "text-pink-600 bg-pink-100",
+    title: "Ultimate Google Ads Training 2020: Profit with Pay Per Click",
+    price: 9,
+    rating: 4.1,
+    students: "154,817",
+  },
+  {
+    id: 6,
+    imageUrl: "/courses/course6.svg",
+    category: "IT & Software",
+    categoryColor: "text-red-600 bg-red-100",
+    title: "Learn Ethical Hacking From Scratch 2021",
+    price: 35,
+    rating: 4.8,
+    students: "451,444",
+  },
+  {
+    id: 7,
+    imageUrl: "/courses/course7.svg",
+    category: "Developments",
+    categoryColor: "text-blue-600 bg-blue-100",
+    title: "Angular - The Complete Guide (2021 Edition)",
+    price: 16,
+    rating: 4.3,
+    students: "197,637",
+  },
+  {
+    id: 8,
+    imageUrl: "/courses/course8.svg",
+    category: "Marketing",
+    categoryColor: "text-indigo-600 bg-indigo-100",
+    title: "How to get Diamond in soloQ | League of Legends | Season 11",
+    price: 23,
+    rating: 4.7,
+    students: "435,671",
+  },
+  // Row 3
+  {
+    id: 9,
+    imageUrl: "/courses/course9.svg",
+    category: "Design",
+    categoryColor: "text-pink-600 bg-pink-100",
+    title: "Machine Learning A-Z™: Hands-On Python & R In Data Science",
+    price: 13,
+    rating: 4.6,
+    students: "181,811",
+  },
+  {
+    id: 10,
+    imageUrl: "//courses/course10.svg",
+    category: "IT & Software",
+    categoryColor: "text-red-600 bg-red-100",
+    title: "SQL for NEWBS: Weekender Crash Course",
+    price: 32,
+    rating: 5.0,
+    students: "451,444",
+  },
+  {
+    id: 11,
+    imageUrl: "/courses/course11.svg",
+    category: "Developments",
+    categoryColor: "text-blue-600 bg-blue-100",
+    title: "SEO 2021: Complete SEO Training + SEO for WordPress Websites",
+    price: 24,
+    rating: 5.0,
+    students: "197,637",
+  },
+  {
+    id: 12,
+    imageUrl: "/courses/course12.svg",
+    category: "Marketing",
+    categoryColor: "text-indigo-600 bg-indigo-100",
+    title: "[NEW] Ultimate AWS Certified Cloud Practitioner - 2021",
+    price: 9,
+    rating: 5.0,
+    students: "1,356,236",
+  },
+  // Row 4
+  {
+    id: 13,
+    imageUrl: "/courses/course13.svg",
+    category: "Design",
+    categoryColor: "text-pink-600 bg-pink-100",
+    title: "Data Structures & Algorithms Essentials (2021)",
+    price: 24,
+    rating: 4.7,
+    students: "451,444",
+  },
+  {
+    id: 14,
+    imageUrl: "/courses/course14.svg",
+    category: "IT & Software",
+    categoryColor: "text-red-600 bg-red-100",
+    title: "Complete Adobe Lightroom Megacourse: Beginner to Expert",
+    price: 89,
+    rating: 4.9,
+    students: "511,123",
+  },
+  {
+    id: 15,
+    imageUrl: "/courses/course15.svg",
+    category: "Developments",
+    categoryColor: "text-blue-600 bg-blue-100",
+    title: "Digital Marketing Masterclass - 23 Courses in 1",
+    price: 32,
+    rating: 5.0,
+    students: "211,434",
+  },
+  {
+    id: 16,
+    imageUrl: "/courses/course16.svg",
+    category: "Marketing",
+    categoryColor: "text-indigo-600 bg-indigo-100",
+    title: "The Ultimate Drawing Course - Beginner to Advanced",
+    price: 49,
+    rating: 4.9,
+    students: "197,637",
+  },
+  // Row 5
+  {
+    id: 17,
+    imageUrl: "/courses/course17.svg",
+    category: "Design",
+    categoryColor: "text-pink-600 bg-pink-100",
+    title: "Instagram Marketing 2021: Complete Guide To Instagram Gro...",
+    price: 16,
+    rating: 4.5,
+    students: "854",
+  },
+  {
+    id: 18,
+    imageUrl: "/courses/course18.svg",
+    category: "IT & Software",
+    categoryColor: "text-red-600 bg-red-100",
+    title: "Automate the Boring Stuff with Python Programming",
+    price: 9,
+    rating: 4.8,
+    students: "982,841",
+  },
+  {
+    id: 19,
+    imageUrl: "/courses/course19.svg",
+    category: "Developments",
+    categoryColor: "text-blue-600 bg-blue-100",
+    title: "Selenium WebDriver with Java for Beginners to Advanced+Frameworks",
+    price: 9,
+    rating: 4.4,
+    students: "154,817",
+  },
+  {
+    id: 20,
+    imageUrl: "/courses/course20.svg",
+    category: "Marketing",
+    categoryColor: "text-indigo-600 bg-indigo-100",
+    title: "iPhone Photography | Take Professional Photos On Your iPhone",
+    price: 24,
+    rating: 4.8,
+    students: "311,834",
+  },
+];
+
+// --- Data Generation for the remaining courses ---
+
 const categories = [
   { name: "IT & Software", color: "text-red-600 bg-red-100" },
   { name: "Design", color: "text-pink-600 bg-pink-100" },
@@ -11,74 +221,57 @@ const categories = [
 ];
 
 const titles = [
-  "Learn Python Programming Masterclass",
-  "Complete Blender Creator: Learn 3D Modelling",
-  "Adobe Premiere Pro CC – Advanced Training Course",
-  "Ultimate AWS Certified Solutions Architect 2021",
-  "Ultimate Google Ads Training 2020: Profit with Pay Per Click",
-  "Learn Ethical Hacking From Scratch 2021",
-  "Angular - The Complete Guide (2021 Edition)",
-  "How to get Diamond in soloQ | League of Legends",
-  "Machine Learning A-Z™: Hands-On Python & R",
-  "SQL for NEWBS: Weekender Crash Course",
-  "SEO 2021: Complete SEO Training + SEO for WordPress",
-  "[NEW] Ultimate AWS Certified Cloud Practitioner - 2021",
-  "Data Structures & Algorithms Essentials (2021)",
-  "Complete Adobe Lightroom Megacourse: Beginner to Expert",
-  "Digital Marketing Masterclass - 23 Courses in 1",
-  "The Ultimate Drawing Course - Beginner to Advanced",
-  "Instagram Marketing 2021: Complete Guide To Growth",
-  "Automate the Boring Stuff with Python Programming",
-  "Selenium WebDriver with Java for Beginners",
-  "iPhone Photography | Take Professional Photos On Your iPhone",
-  "Premiere Pro CC for Beginners: Video Editing in Premiere",
   "The Complete Financial Analyst Training & Investing Course",
   "Graphic Design Masterclass - Learn GREAT Design",
-  "Become a Certified Web Developer",
-];
-
-const instructors = [
-  { name: "Kevin Gilbert", avatarUrl: "https://i.pravatar.cc/32?img=1" },
-  { name: "Jonas S.", avatarUrl: "https://i.pravatar.cc/32?img=2" },
-  { name: "Angela Yu", avatarUrl: "https://i.pravatar.cc/32?img=3" },
-  { name: "Darrel Wilson", avatarUrl: "https://i.pravatar.cc/32?img=4" },
-  { name: "Penny Lane", avatarUrl: "https://i.pravatar.cc/32?img=5" },
+  "Become a Certified Web Developer from Scratch",
+  "JavaScript: The Advanced Concepts",
+  "React - The Complete Guide (incl Hooks, React Router)",
+  "Docker & Kubernetes: The Complete Guide",
+  "The Complete Node.js Developer Course",
+  "Go: The Complete Developer's Guide (Golang)",
+  "Rust Programming Language for Beginners",
+  "Modern React with Redux",
+  "Advanced iOS and Swift Bootcamp",
+  "Unreal Engine 5 C++ Developer: Learn C++ & Make Video Games",
 ];
 
 const randomFromArray = <T>(arr: T[]): T =>
   arr[Math.floor(Math.random() * arr.length)];
-const randomInt = (min: number, max: number) =>
+const randomInt = (min: number, max: number): number =>
   Math.floor(Math.random() * (max - min + 1)) + min;
-const formatNumber = (num: number) => (num / 1000).toFixed(1) + "k";
+const formatStudents = (num: number): string => {
+  if (num >= 100000) return `${(num / 1000).toFixed(0)}k`;
+  if (num >= 1000) return `${(num / 1000).toFixed(1)}k`;
+  return num.toString();
+};
 
-export const allCourses: Course[] = Array.from({ length: 24 }, (_, i) => {
+const generatedCourses: Course[] = Array.from({ length: 60 }, (_, i) => {
   const category = randomFromArray(categories);
-  const originalPrice = randomInt(89, 199);
-  const price = randomInt(9, originalPrice - 10);
+  const keywords = [
+    "code",
+    "design",
+    "laptop",
+    "office",
+    "meeting",
+    "data",
+    "analytics",
+    "creative",
+    "technology",
+  ];
+  const randomKeyword = randomFromArray(keywords);
+  const imageUrl = `https://source.unsplash.com/random/400x300?${randomKeyword}&sig=${i}`;
 
   return {
-    id: i + 1,
-    imageUrl: `https://images.unsplash.com/photo-${randomInt(
-      1500000000000,
-      1600000000000
-    )}-${randomInt(100000000000, 999999999999)}?q=80&w=400&h=300&fit=crop`,
+    id: initialCourses.length + i + 1,
+    imageUrl: imageUrl,
     category: category.name,
     categoryColor: category.color,
-    title: titles[i % titles.length],
-    price: price,
-    originalPrice: originalPrice,
-    rating: parseFloat((Math.random() * (5.0 - 4.1) + 4.1).toFixed(1)),
-    students: formatNumber(randomInt(800, 500000)),
-    ratingCount: formatNumber(randomInt(500, 400000)),
-    instructor: randomFromArray(instructors),
-    level: ["Beginner", "Intermediate", "All Levels", "Expert"][
-      randomInt(0, 3)
-    ],
-    duration: `${randomInt(5, 40)}h ${randomInt(0, 59)}m`,
-    whatYoullLearn: [
-      "Master the core concepts of the subject.",
-      "Build real-world projects to add to your portfolio.",
-      "Learn advanced techniques and industry best practices.",
-    ],
+    title: `${titles[i % titles.length]}`,
+    price: randomInt(19, 129),
+    rating: parseFloat((Math.random() * (5.0 - 4.2) + 4.2).toFixed(1)),
+    students: formatStudents(randomInt(900, 600000)),
   };
 });
+
+// Combine the initial courses with the generated ones
+export const allCourses: Course[] = [...initialCourses, ...generatedCourses];
