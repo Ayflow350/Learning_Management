@@ -1,7 +1,7 @@
-import { Course } from "@/types/course";
+import { Courses } from "@/types/course";
 
 // --- Your original, hand-picked data ---
-const initialCourses: Course[] = [
+const initialCourses: Courses[] = [
   {
     id: 1,
     imageUrl: "/courses/course1.svg", // You will provide this image
@@ -245,7 +245,7 @@ const formatStudents = (num: number): string => {
   return num.toString();
 };
 
-const generatedCourses: Course[] = Array.from({ length: 60 }, (_, i) => {
+const generatedCourses: Courses[] = Array.from({ length: 60 }, (_, i) => {
   const category = randomFromArray(categories);
   const keywords = [
     "code",
@@ -274,4 +274,4 @@ const generatedCourses: Course[] = Array.from({ length: 60 }, (_, i) => {
 });
 
 // Combine the initial courses with the generated ones
-export const allCourses: Course[] = [...initialCourses, ...generatedCourses];
+export const allCourses: Courses[] = [...initialCourses, ...generatedCourses];

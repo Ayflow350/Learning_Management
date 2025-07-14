@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Course } from "@/types/course";
+import { Courses } from "@/types/course";
 import SimpleCourseCard from "./SimpleCourseCard";
 import Pagination from "./Pagination";
 
@@ -37,7 +37,7 @@ const useItemsPerPage = () => {
 };
 // --- END: Custom Hook ---
 
-const CourseGrid = ({ courses }: { courses: Course[] }) => {
+const CourseGrid = ({ courses }: { courses: Courses[] }) => {
   // Use our new dynamic hook
   const itemsPerPage = useItemsPerPage();
 

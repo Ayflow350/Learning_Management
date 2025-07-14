@@ -1,4 +1,4 @@
-export interface Course {
+export interface Courses {
   id: number;
   imageUrl: string;
   category: string;
@@ -17,4 +17,24 @@ export interface Course {
     avatarUrl: string;
   };
   whatYoullLearn?: string[];
+}
+
+export interface Course {
+  id: number;
+  imageUrl: string;
+  category: string;
+  categoryColor: string;
+  title: string;
+  price: number;
+  originalPrice?: number;
+  rating: number;
+  ratingCount: string;
+  students: string;
+  level: string;
+  duration: string;
+  instructor: {
+    name: string;
+    avatarUrl: string;
+  };
+  whatYoullLearn: string[];
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import { Star, Users } from "lucide-react";
-import { Course } from "@/types/course";
+import { Courses } from "@/types/course";
 
-const SimpleCourseCard = ({ course }: { course: Course }) => {
+const SimpleCourseCard = ({ course }: { course: Courses }) => {
   return (
     <div className="flex h-full flex-col overflow-hidden  bg-white shadow-md transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
       <a href="#" className=" flex h-full flex-col">
