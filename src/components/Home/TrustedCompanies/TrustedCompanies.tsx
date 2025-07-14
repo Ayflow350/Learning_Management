@@ -5,7 +5,7 @@ import Image from "next/image";
 
 // Data for the company logos
 const companies = [
-  { name: "Netflix", logoUrl: "/Companies/Logo6.svg" },
+  { name: "Netflix", logoUrl: "/Companies/Netflix.svg" },
   { name: "YouTube", logoUrl: "/Companies/Logo2.svg" },
   { name: "Google", logoUrl: "/Companies/Logo3.svg" },
   { name: "Lenovo", logoUrl: "/Companies/Logo4.svg" },
@@ -18,7 +18,7 @@ const companies = [
 // Reusable component for each logo card
 const LogoCard = ({ name, logoUrl }: { name: string; logoUrl: string }) => (
   <div className="flex h-32 items-center justify-center rounded-lg bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-lg">
-    <div className="relative h-8 w-full">
+    <div className="relative h-20 w-full">
       <Image
         src={logoUrl}
         alt={`${name} logo`}
@@ -32,13 +32,13 @@ const LogoCard = ({ name, logoUrl }: { name: string; logoUrl: string }) => (
 
 const TrustedCompanies = () => {
   return (
-    <section className="bg-gray-50 py-24 sm:py-32">
+    <section className="bg-white py-10 sm:py-32">
       <div className="container mx-auto px-6">
         {/* Main Grid: Text on left, logos on right for desktop */}
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-3">
           {/* Left Column: Text Content */}
-          <div className="lg:col-span-1">
-            <h2 className="text-3xl font-extrabold text-dark-text">
+          <div className="lg:col-span-1 text-center lg:text-left">
+            <h2 className=" text-2xl md:text-3xl font-extrabold text-dark-text">
               6.3k trusted companies
             </h2>
             <p className="mt-4 text-gray-600">

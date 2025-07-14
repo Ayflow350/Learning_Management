@@ -148,6 +148,7 @@ const BestSellingCourses = () => {
           </div>
         )}
       </div>
+      <div className="lg:h-[220px]"></div>
     </section>
   );
 };

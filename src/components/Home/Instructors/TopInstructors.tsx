@@ -42,10 +42,7 @@ const instructorsData = [
 
 const TitleWithDashedLine = ({ children }: { children: React.ReactNode }) => (
   <div className="relative mb-12 text-center">
-    <div className="absolute inset-0 flex items-center" aria-hidden="true">
-      <div className="w-full border-t border-dashed border-gray-300"></div>
-    </div>
-    <h2 className="relative inline-block bg-gray-50 px-8 text-3xl font-extrabold text-dark-text">
+    <h2 className="relative inline-block  px-8 text-3xl font-extrabold text-dark-text">
       {children}
     </h2>
   </div>
@@ -53,8 +50,8 @@ const TitleWithDashedLine = ({ children }: { children: React.ReactNode }) => (
 
 const TopInstructors = () => {
   return (
-    <section className="bg-gray-50 py-24 sm:py-32">
-      <div className="container mx-auto px-6">
+    <section className=" py-24 sm:py-32 xl:-mt-80">
+      <div className="container mx-auto px-6  xl:bg-white xl:border xl:p-[80px]">
         <TitleWithDashedLine>Top instructor of the month</TitleWithDashedLine>
 
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-8">
@@ -63,7 +60,7 @@ const TopInstructors = () => {
           ))}
         </div>
 
-        <div className="mt-12 rounded-lg border border-dashed border-gray-300 p-4 text-center">
+        <div className="mt-12 rounded-lg p-4 text-center">
           <p className="text-gray-600">
             Thousands of students waiting for a instructor. Start teaching &
             earning now!{" "}

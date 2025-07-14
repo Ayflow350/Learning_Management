@@ -96,7 +96,7 @@ const Hero = () => {
             </div>
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] md:w-[450px] h-auto z-30">
               <Image
-                src="/student.png"
+                src="/Hero/Students.png"
                 alt="Happy student"
                 width={450}
                 height={560}

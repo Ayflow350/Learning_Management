@@ -75,11 +75,8 @@ const featuredCoursesData = [
 
 const FeaturedCourses = () => {
   return (
-    // === THIS IS THE OVERLAY EFFECT ===
-    // Using `bg-transparent` so we see the section below it,
-    // `relative` for z-index, and a negative top margin `-mt-20`
-    <section className="bg-transparent py-28 sm:py-24 relative z-10 -mt-20">
-      <div className="container mx-auto px-6">
+    <section className="py-28 sm:py-24 relative z-10 lg:-mt-80 -mt-20 ">
+      <div className="container mx-auto px-6  bg-white lg:border lg:p-[80px] ">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row justify-between  items-center lg:items-end mb-12">
           <h2 className=" text-2xl  md:text-4xl mb-0 md:mb-2 font-semibold text-[#1D2026]">
