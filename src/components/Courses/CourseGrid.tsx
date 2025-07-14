@@ -1,72 +1,77 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Courses } from "@/types/course";
+import { Courses } from "@/types/course"; // Using your specified type name
 import SimpleCourseCard from "./SimpleCourseCard";
 import Pagination from "./Pagination";
 
-// --- START: Custom Hook to get items per page based on screen size ---
+// Custom Hook to get items per page based on screen size (no changes here)
 const useItemsPerPage = () => {
-  const [itemsPerPage, setItemsPerPage] = useState(20); // Default to 20 for desktop
-
+  const [itemsPerPage, setItemsPerPage] = useState(20);
   useEffect(() => {
     const getItems = () => {
       if (window.innerWidth < 640) {
-        // Mobile (sm breakpoint)
         return 8;
       } else if (window.innerWidth < 1024) {
-        // Tablet (lg breakpoint)
         return 12;
       }
-      return 20; // Desktop
+      return 20;
     };
-
     const handleResize = () => {
       setItemsPerPage(getItems());
     };
-
-    // Set initial value
     handleResize();
-
     window.addEventListener("resize", handleResize);
-    // Cleanup listener on component unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
   return itemsPerPage;
 };
-// --- END: Custom Hook ---
 
-const CourseGrid = ({ courses }: { courses: Courses[] }) => {
-  // Use our new dynamic hook
+// Updated props interface to use `Courses`
+interface CourseGridProps {
+  courses: Courses[];
+  gridCols?: {
+    sm?: number;
+    lg?: number;
+    xl?: number;
+  };
+}
+
+const CourseGrid = ({ courses, gridCols }: CourseGridProps) => {
   const itemsPerPage = useItemsPerPage();
-
   const [currentPage, setCurrentPage] = useState(1);
 
-  // All calculations are now based on the dynamic itemsPerPage value
+  // Dynamically build the grid class name
+  const cols = {
+    sm: gridCols?.sm || 2,
+    lg: gridCols?.lg || 3,
+    xl: gridCols?.xl || 4,
+  };
+  const gridClassName = `grid grid-cols-1 sm:grid-cols-${cols.sm} lg:grid-cols-${cols.lg} xl:grid-cols-${cols.xl} gap-8`;
+
+  // Pagination logic remains the same
   const totalPages = Math.ceil(courses.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentCourses = courses.slice(startIndex, startIndex + itemsPerPage);
 
-  // When the number of items per page changes (due to resize), reset to page 1
   useEffect(() => {
     setCurrentPage(1);
   }, [itemsPerPage]);
 
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <div className={gridClassName}>
         {currentCourses.map((course) => (
-          // The SimpleCourseCard props need to be updated if you still have the hover logic
           <SimpleCourseCard
             key={course.id}
             course={course}
-            // Add dummy props if your card expects them
+            // Add dummy props if your card still expects them
+            // onMouseEnter={() => {}}
+            // onMouseLeave={() => {}}
           />
         ))}
       </div>
 
-      {/* Only show pagination if there is more than one page */}
       {totalPages > 1 && (
         <Pagination
           currentPage={currentPage}
