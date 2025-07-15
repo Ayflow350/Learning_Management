@@ -15,7 +15,7 @@ const FilterBar = () => {
   const [sortOption, setSortOption] = useState("trending");
 
   return (
-    <div className="space-y-6 pb-6 border-b border-gray-200">
+    <div className=" space-y-6 pb-6 border-b border-gray-200 ">
       {/* Top Row: Filters and Sorting */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         {/* Left Side: Filter and Search */}
@@ -23,7 +23,7 @@ const FilterBar = () => {
           {/* Filter Button */}
           <Button
             variant="outline"
-            className="h-12 w-full sm:w-auto justify-center sm:justify-start text-base border-primary text-primary hover:bg-primary/5 hover:text-primary ring-2 ring-primary/20"
+            className="h-12 w-full sm:w-auto justify-center sm:justify-start text-base hover:border-primary text-primary hover:bg-primary/5 hover:text-primary ring-2 ring-primary/20"
           >
             <SlidersHorizontal className="mr-2 h-4 w-4" />
             Filter

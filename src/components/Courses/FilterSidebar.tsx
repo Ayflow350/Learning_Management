@@ -112,9 +112,9 @@ const FilterSection = ({
 }) => (
   <AccordionItem
     value={value}
-    className="border-t border-b border-gray-200 py-4"
+    className="border border-gray-200  w-full px-4 py-4"
   >
-    <AccordionTrigger className="py-0 text-sm font-bold uppercase text-dark-text hover:no-underline">
+    <AccordionTrigger className="py-0 text-sm font-bold   uppercase text-dark-text hover:no-underline">
       {title}
     </AccordionTrigger>
     <AccordionContent className="pt-4">{children}</AccordionContent>
@@ -133,7 +133,7 @@ const CategoryItem = ({
   children: React.ReactNode;
 }) => (
   <AccordionItem value={value} className="border-none">
-    <AccordionTrigger className="p-2 text-sm font-medium text-gray-700 hover:no-underline hover:bg-gray-100 [&[data-state=open]>svg:last-child]:text-primary">
+    <AccordionTrigger className="p-2 text-sm font-medium text-[#4E5566] hover:no-underline hover:bg-gray-100 [&[data-state=open]>svg:last-child]:text-primary">
       <div className="flex items-center gap-3">
         <div className="w-5">{icon}</div>
         <span>{label}</span>
@@ -151,8 +151,7 @@ const FilterSidebar = () => {
   const [priceRange, setPriceRange] = useState([25, 75]);
 
   return (
-    <div className="w-full bg-white p-6 shadow-sm">
-      <h3 className="mb-4 text-xl font-bold text-dark-text">Filter By</h3>
+    <div className="w-full  p-6 ">
       <Accordion
         type="multiple"
         defaultValue={[
@@ -169,7 +168,7 @@ const FilterSidebar = () => {
           <Accordion
             type="multiple"
             defaultValue={["development"]}
-            className="w-full space-y-1"
+            className="w-full space-y-1 bg-blue-600"
           >
             <CategoryItem
               value="development"
@@ -358,6 +357,7 @@ const FilterSidebar = () => {
             <CheckboxOption id="d-5" label="1-7 Days" count={1345} />
           </div>
         </FilterSection>
+        <div className="h-20"></div>
       </Accordion>
     </div>
   );

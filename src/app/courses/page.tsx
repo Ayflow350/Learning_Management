@@ -2,6 +2,7 @@ import React from "react";
 import { allCourses } from "@/data/courses";
 import FilterBar from "@/components/Courses/FilterBar";
 import CourseGrid from "@/components/Courses/CourseGrid";
+
 import Header from "@/components/Home/Header/Header";
 import Navbar from "@/components/Home/Header/Navbar";
 import Footer from "@/components/Home/Footer/Footer";
