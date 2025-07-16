@@ -18,17 +18,17 @@ const requirementsData = [
 const RequirementListItem = ({ text }: { text: string }) => (
   <li className="flex items-start gap-2">
     <Dot className="h-6 w-6 flex-shrink-0 text-gray-500 -ml-1" />
-    <span className="text-gray-700">{text}</span>
+    <span className="text-[#4E5566] text-sm">{text}</span>
   </li>
 );
 
 const CourseRequirements = () => {
   return (
     <div>
-      <h3 className="mb-6 text-2xl font-bold text-dark-text">
+      <h3 className="mb-6 text-2xl font-semibold text-[#1D2026]">
         Course requirements
       </h3>
-      <ul className="space-y-4">
+      <ul className="space-y-[14px]">
         {requirementsData.map((item, index) => (
           <RequirementListItem key={index} text={item} />
         ))}

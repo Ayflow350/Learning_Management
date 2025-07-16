@@ -53,7 +53,7 @@ const CourseDetailsPage = () => {
       <Header />
       <Navbar />
       <main
-        className="relative  bg-white py-12 bg-repeat h-[380px] bg-center bg-cover"
+        className="relative bg-fixed  bg-white py-12 bg-repeat h-[380px] bg-center bg-cover"
         style={{ backgroundImage: "url('/Video/BG.svg')" }}
       >
         <div>
@@ -62,16 +62,16 @@ const CourseDetailsPage = () => {
               <div className="lg:col-span-8">
                 {/* --- Breadcrumbs and Course Header --- */}
                 <div className="space-y-4">
-                  <p className="text-sm text-gray-500">
+                  <p className=" text-[12px] md:text-sm text-[#6E7485]">
                     Home {">"} Development {">"} Web Development {">"} Webflow
                   </p>
 
-                  <h1 className="text-3xl font-extrabold text-dark-text md:text-4xl">
+                  <h1 className="text-2xl font-semibold leading-tight  md:leading-[40px]  text-[#1D2026] md:text-[32px]">
                     Complete Website Responsive Design: from Figma to Webflow to
                     Website Design
                   </h1>
 
-                  <p className="text-lg text-gray-600">
+                  <p className=" text-[12px]  leading-[20px] md:text-base lmd:eading-[32px] text-[#4E5566]">
                     3 in 1 Course: learn to design websites with Figma, build
                     with Webflow, and make a living freelancing.
                   </p>

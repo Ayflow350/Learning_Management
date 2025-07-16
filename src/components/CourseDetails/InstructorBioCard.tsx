@@ -13,21 +13,32 @@ interface InstructorBioCardProps {
   bio: string;
 }
 
-const StatItem = ({ icon, text }: { icon: React.ReactNode; text: string }) => (
-  <div className="flex items-center gap-2 text-sm text-gray-600">
+// === THIS IS THE CORRECTED COMPONENT ===
+const StatItem = ({
+  icon,
+  text,
+  className,
+}: {
+  icon: React.ReactNode;
+  text: string;
+  className?: string; // Added className to the type definition
+}) => (
+  <div
+    className={`flex items-center gap-x-2 rounded-full px-3 py-1 text-sm ${className}`}
+  >
     {icon}
     <span>{text}</span>
   </div>
 );
+// =======================================
 
 const InstructorBioCard = (props: InstructorBioCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const shortBio = props.bio.slice(0, 200); // Show first 200 characters
+  const shortBio = props.bio.slice(0, 200);
 
   return (
-    <div className="rounded-lg border border-gray-200 p-6">
+    <div className=" border border-gray-200 p-6">
       <div className="flex flex-col sm:flex-row items-start gap-6">
-        {/* Avatar */}
         <div className="flex-shrink-0">
           <Image
             src={props.imageUrl}
@@ -37,29 +48,27 @@ const InstructorBioCard = (props: InstructorBioCardProps) => {
             className="rounded-full"
           />
         </div>
-        {/* Details */}
         <div className="flex-1">
-          <h4 className="text-xl font-bold text-dark-text">{props.name}</h4>
-          <p className="text-primary font-medium mt-1">{props.title}</p>
-
-          {/* Stats */}
+          <h4 className="text-xl font-semibold text-[#1D2026]">{props.name}</h4>
+          <p className="text-[#6E7485] text-[14px] mt-1">{props.title}</p>
           <div className="my-4 flex flex-wrap items-center gap-x-4 gap-y-2">
             <StatItem
               icon={<Star size={16} className="text-amber-500" />}
               text={`${props.rating} Course rating`}
+              className="bg-amber-100 text-amber-800"
             />
             <StatItem
-              icon={<Users size={16} />}
+              icon={<Users size={16} className="text-blue-500" />}
               text={`${props.studentCount} Students`}
+              className="bg-blue-100 text-blue-800"
             />
             <StatItem
-              icon={<PlayCircle size={16} />}
+              icon={<PlayCircle size={16} className="text-green-500" />}
               text={`${props.courseCount} Courses`}
+              className="bg-green-100 text-green-800"
             />
           </div>
-
-          {/* Bio with Read More */}
-          <div className="text-gray-600 leading-relaxed">
+          <div className="text-[#6E7485] text-[14px] leading-relaxed">
             <p>
               {isExpanded ? props.bio : `${shortBio}... `}
               {!isExpanded && (

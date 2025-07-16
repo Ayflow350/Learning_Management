@@ -18,17 +18,17 @@ const audienceData = [
 const AudienceListItem = ({ text }: { text: string }) => (
   <li className="flex items-start gap-4">
     <ArrowRight className="h-5 w-5 flex-shrink-0 text-primary mt-1" />
-    <span className="text-gray-700">{text}</span>
+    <span className="text-[#4E5566] text-sm">{text}</span>
   </li>
 );
 
 const TargetAudience = () => {
   return (
     <div>
-      <h3 className="mb-6 text-2xl font-bold text-dark-text">
+      <h3 className="mb-6 text-2xl font-semibold text-[#1D2026]">
         Who this course is for:
       </h3>
-      <ul className="space-y-4">
+      <ul className="space-y-[14px]">
         {audienceData.map((item, index) => (
           <AudienceListItem key={index} text={item} />
         ))}

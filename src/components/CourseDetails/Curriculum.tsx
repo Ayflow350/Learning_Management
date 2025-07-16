@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { PlayCircle } from "lucide-react";
+import Image from "next/image";
 
 const CurriculumSection = ({
   title,
@@ -19,12 +20,28 @@ const CurriculumSection = ({
   children: React.ReactNode;
 }) => (
   <AccordionItem value={title}>
-    <AccordionTrigger className="hover:no-underline font-bold text-dark-text">
-      <div className="flex w-full items-center justify-between">
-        <span>{title}</span>
+    <AccordionTrigger className="hover:no-underline font-semibold  text-dark-text">
+      <div className="flex md:flex-row flex-col  w-full text-left  space-y-1 md:items-center md:justify-between">
+        <span className=" ">{title}</span>
         <div className="flex items-center gap-4 text-sm font-normal text-gray-500">
-          <span>{lectures} lectures</span>
-          <span>{duration}</span>
+          <div className=" flex gap-x-2  justify-center items-center">
+            <span>
+              <Image
+                src="/Video/PlayCircle.svg"
+                alt=""
+                width={20}
+                height={20}
+              />
+            </span>
+            <span className=" ">{lectures} lectures</span>
+          </div>
+
+          <div className=" flex gap-x-2 items-center">
+            <span>
+              <Image src="/Video/Clock.svg" alt="" width={20} height={20} />
+            </span>
+            <span>{duration}</span>
+          </div>
         </div>
       </div>
     </AccordionTrigger>
@@ -53,8 +70,43 @@ const CurriculumLesson = ({
 const Curriculum = () => {
   return (
     <div>
-      <h3 className="mb-4 text-2xl font-bold text-dark-text">Curriculum</h3>
-      <Accordion type="multiple" className="w-full rounded-lg border">
+      <div className="mb-4 flex flex-col md:flex-row  md:items-center  justify-between">
+        <h3 className=" text-2xl font-semibold text-[#1D2026] mbb-2">
+          Curriculum
+        </h3>
+        <div className="flex items-center gap-4 text-sm font-normal text-gray-500">
+          <div className=" flex gap-x-1 items-center">
+            <span>
+              <Image
+                src="/Video/FolderOpen.svg"
+                alt=""
+                width={20}
+                height={20}
+              />
+            </span>
+            6 Sections
+          </div>
+          <div className=" flex gap-x-1 items-center">
+            <span>
+              <Image
+                src="/Video/PlayCircle.svg"
+                alt=""
+                width={20}
+                height={20}
+              />
+            </span>
+            202 lectures
+          </div>
+
+          <div className=" flex gap-x-1 items-center">
+            <span>
+              <Image src="/Video/Clock.svg" alt="" width={20} height={20} />
+            </span>
+            <span>19h 37m</span>
+          </div>
+        </div>
+      </div>
+      <Accordion type="multiple" className="w-full  p-5 border">
         <CurriculumSection
           title="Getting Started"
           lectures={4}

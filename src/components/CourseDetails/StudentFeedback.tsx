@@ -21,12 +21,12 @@ const RatingBar = ({
           key={i}
           size={16}
           className={
-            i < stars ? "text-amber-400 fill-amber-400" : "text-gray-300"
+            i < stars ? "text-[#FD8E1F] fill-[#FD8E1F]" : "text-gray-300"
           }
         />
       ))}
     </div>
-    <p className="w-1/5 text-sm text-primary font-semibold">{percentage}%</p>
+    <p className="w-1/5 text-sm text-[#1D2026] font-semibold">{percentage}%</p>
   </div>
 );
 
@@ -51,8 +51,8 @@ const Review = ({
     />
     <div>
       <div className="flex items-center gap-4">
-        <h4 className="font-bold text-dark-text">{name}</h4>
-        <p className="text-sm text-gray-500">{time}</p>
+        <h4 className="font-semibold text-[#1D2026]">{name}</h4>
+        <p className="text-sm text-gray-500"> . {time}</p>
       </div>
       <div className="flex items-center my-2">
         {Array.from({ length: 5 }).map((_, i) => (
