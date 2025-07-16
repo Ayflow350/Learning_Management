@@ -149,11 +149,12 @@ const CourseDetailsPage = () => {
 
                     <p className="mb-3 text-[#4E5566] text-[14px]">
                       It gives you a huge self-satisfaction when you look at
-                      your work and say, "I made this!". I love that feeling
-                      after I&apos;m done working on something. When I lean back
-                      in my chair, look at the final result with a smile, and
-                      have this little "spark joy" moment. It&apos;s especially
-                      satisfying when I know I just made $5,000.
+                      your work and say, &quot;I made this!&quot;. I love that
+                      feeling after I&apos;m done working on something. When I
+                      lean back in my chair, look at the final result with a
+                      smile, and have this little &quot;spark joy&quot; moment.
+                      It&apos;s especially satisfying when I know I just made
+                      $5,000.
                     </p>
                     <p className="mb-3 text-[#4E5566] text-[14px]">
                       I do! And that&apos;s why I got into this field. Not for
