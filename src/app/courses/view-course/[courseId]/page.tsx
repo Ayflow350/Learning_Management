@@ -1,55 +1,58 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, FileText, Download } from "lucide-react";
+import { ChevronLeft, ArrowRight, Download, FileText } from "lucide-react";
 import VideoPlayer from "@/components/Player/VideoPlayer";
 import CurriculumSidebar from "@/components/Player/CurriculumSidebar";
 import CommentsSection from "@/components/Player/CommentsSection";
-import { allCourses, Lesson } from "@/data/video";
+import { allCourses, type Lesson } from "@/data/video";
 
-// Define the type for the video.js options object
 type VideoJsOptions = NonNullable<
   Parameters<typeof import("video.js").default>[1]
 >;
 
-// 1. DEFINE THE PROPS INTERFACE FOR THE TABBUTTON COMPONENT
-interface TabButtonProps {
+// Combined TabButton for both mobile and desktop
+const TabButton = ({
+  text,
+  count,
+  isActive,
+  onClick,
+}: {
   text: string;
-  count?: string; // '?' makes this prop optional
+  count?: string;
   isActive: boolean;
   onClick: () => void;
-}
-
-// 2. APPLY THE INTERFACE TO THE COMPONENT'S PROPS
-const TabButton = ({ text, count, isActive, onClick }: TabButtonProps) => (
+}) => (
   <button
     onClick={onClick}
-    className={`relative whitespace-nowrap py-4 px-1 text-sm font-medium transition-colors duration-200 ${
-      isActive ? "text-primary" : "text-gray-500 hover:text-dark-text"
+    className={`whitespace-nowrap border-b-2 px-1 py-4 text-sm font-medium transition-colors duration-200 ${
+      isActive
+        ? "border-primary text-primary"
+        : "border-transparent text-gray-500 hover:border-gray-300 hover:text-dark-text"
     }`}
   >
     {text}{" "}
-    {/* This conditional rendering works perfectly with an optional prop */}
     {count && (
-      <span className="ml-1.5 rounded-full bg-gray-200 px-2 py-0.5 text-xs">
+      <span className="ml-1.5 rounded-full bg-gray-200 px-2 py-0.5 text-xs font-semibold text-gray-700">
         {count}
       </span>
-    )}
-    {isActive && (
-      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
     )}
   </button>
 );
 
 const ViewCoursePage = ({ params }: { params: { courseId: string } }) => {
-  const [activeTab, setActiveTab] = useState("description");
+  // === THIS IS THE CHANGE: Default active tab is now 'curriculum' ===
+  const [activeTab, setActiveTab] = useState("curriculum");
 
   const course = allCourses.find((c) => c.id === parseInt(params.courseId, 10));
 
-  const initialLesson =
-    course?.curriculum.flatMap((s) => s.lessons).find((l) => l.isCompleted) ||
-    course?.curriculum[0]?.lessons[0];
+  const allLessons = useMemo(
+    () => course?.curriculum.flatMap((s) => s.lessons) || [],
+    [course]
+  );
+
+  const initialLesson = allLessons.find((l) => l.isCompleted) || allLessons[0];
 
   const [currentLesson, setCurrentLesson] = useState<Lesson | undefined>(
     initialLesson
@@ -57,23 +60,35 @@ const ViewCoursePage = ({ params }: { params: { courseId: string } }) => {
 
   if (!course || !currentLesson) {
     return (
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex h-screen items-center justify-center">
         Course or lesson not found.
       </div>
     );
   }
+
+  const currentLessonIndex = allLessons.findIndex(
+    (l) => l.id === currentLesson.id
+  );
+
+  const handleLessonClick = (lesson: Lesson) => setCurrentLesson(lesson);
+  const handleNext = () => {
+    if (currentLessonIndex < allLessons.length - 1) {
+      setCurrentLesson(allLessons[currentLessonIndex + 1]);
+    }
+  };
+  const handlePrev = () => {
+    if (currentLessonIndex > 0) {
+      setCurrentLesson(allLessons[currentLessonIndex - 1]);
+    }
+  };
 
   const videoJsOptions: VideoJsOptions = {
     autoplay: false,
     controls: true,
     responsive: true,
     fluid: true,
-    sources: [
-      {
-        src: currentLesson.videoUrl,
-        type: "video/mp4",
-      },
-    ],
+    poster: course.imageUrl,
+    sources: [{ src: currentLesson.videoUrl, type: "video/mp4" }],
     tracks: [
       {
         src: "/captions.vtt",
@@ -85,64 +100,64 @@ const ViewCoursePage = ({ params }: { params: { courseId: string } }) => {
     ],
   };
 
-  const handleLessonClick = (lesson: Lesson) => {
-    setCurrentLesson(lesson);
-  };
-
   return (
     <div className="bg-white">
-      {/* Top Bar */}
-      <header className="border-b border-gray-200">
+      {/* Top Header Bar */}
+      <header className="sticky top-0 z-50 border-b border-gray-200 bg-white">
         <div className="container mx-auto flex items-center justify-between p-4">
           <div className="flex items-center gap-4">
-            <button className="p-2 hover:bg-gray-100 rounded-full">
-              <ChevronLeft />
-            </button>
+            <Button variant="ghost" size="icon" asChild>
+              <a href="/courses">
+                <ChevronLeft />
+              </a>
+            </Button>
             <div className="h-8 border-l border-gray-200"></div>
-            <p className="text-sm font-semibold text-dark-text truncate">
+            <p className="hidden font-semibold text-dark-text sm:block truncate">
               {course.title}
             </p>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <Button variant="outline">Write a Review</Button>
-            <Button className="bg-primary hover:bg-orange-700">
-              Next Lecture
+            <Button
+              onClick={handleNext}
+              disabled={currentLessonIndex === allLessons.length - 1}
+              className="bg-primary hover:bg-orange-700"
+            >
+              Next Lecture <ArrowRight size={16} className="ml-2" />
             </Button>
           </div>
         </div>
       </header>
 
-      {/* Main Content */}
+      {/* Main Content Area */}
       <main className="container mx-auto p-4 md:p-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Left Column */}
+          {/* Left Column (Player and Content Tabs) */}
           <div className="lg:col-span-8">
             <div className="aspect-video w-full overflow-hidden rounded-lg bg-black">
-              <VideoPlayer options={videoJsOptions} />
+              <VideoPlayer
+                options={videoJsOptions}
+                onNext={handleNext}
+                onPrev={handlePrev}
+              />
             </div>
-
             <div className="mt-6">
               <h1 className="text-2xl font-bold text-dark-text">
-                {currentLesson.id}. {currentLesson.title}
+                {currentLesson.title}
               </h1>
+
+              {/* === THIS IS THE CHANGE: Updated Tab Navigation === */}
               <div className="mt-4 border-b border-gray-200">
                 <nav className="-mb-px flex space-x-6 overflow-x-auto">
-                  {/* These calls are now valid because 'count' is optional */}
+                  <TabButton
+                    text="Course Content"
+                    isActive={activeTab === "curriculum"}
+                    onClick={() => setActiveTab("curriculum")}
+                  />
                   <TabButton
                     text="Description"
                     isActive={activeTab === "description"}
                     onClick={() => setActiveTab("description")}
-                  />
-                  <TabButton
-                    text="Lectures Notes"
-                    isActive={activeTab === "notes"}
-                    onClick={() => setActiveTab("notes")}
-                  />
-                  <TabButton
-                    text="Attach Files"
-                    count="01"
-                    isActive={activeTab === "files"}
-                    onClick={() => setActiveTab("files")}
                   />
                   <TabButton
                     text="Comments"
@@ -150,11 +165,29 @@ const ViewCoursePage = ({ params }: { params: { courseId: string } }) => {
                     isActive={activeTab === "comments"}
                     onClick={() => setActiveTab("comments")}
                   />
+                  <TabButton
+                    text="Attach Files"
+                    count="01"
+                    isActive={activeTab === "files"}
+                    onClick={() => setActiveTab("files")}
+                  />
                 </nav>
               </div>
             </div>
 
+            {/* === THIS IS THE CHANGE: Updated Tab Content for Mobile === */}
             <div className="py-8">
+              {/* On mobile, the curriculum is shown here in a tab */}
+              <div className="lg:hidden">
+                {activeTab === "curriculum" && (
+                  <CurriculumSidebar
+                    curriculum={course.curriculum}
+                    onLessonClick={handleLessonClick}
+                    currentLessonId={currentLesson.id}
+                  />
+                )}
+              </div>
+
               {activeTab === "description" && (
                 <div className="prose max-w-none prose-p:text-gray-600">
                   <h3 className="font-bold">Lectures Description</h3>
@@ -162,7 +195,7 @@ const ViewCoursePage = ({ params }: { params: { courseId: string } }) => {
                 </div>
               )}
               {activeTab === "files" && (
-                <div className="rounded-lg border p-4 flex items-center justify-between">
+                <div className="flex items-center justify-between rounded-lg border p-4">
                   <div className="flex items-center gap-3">
                     <FileText className="h-8 w-8 text-primary" />
                     <div>
@@ -182,8 +215,8 @@ const ViewCoursePage = ({ params }: { params: { courseId: string } }) => {
             </div>
           </div>
 
-          {/* Right Column (Sidebar) */}
-          <div className="lg:col-span-4">
+          {/* Right Column (Sidebar) - HIDDEN ON MOBILE */}
+          <div className="hidden lg:block lg:col-span-4">
             <div className="sticky top-24">
               <CurriculumSidebar
                 curriculum={course.curriculum}

@@ -38,3 +38,26 @@ export interface Course {
   };
   whatYoullLearn: string[];
 }
+
+export interface Lesson {
+  id: number;
+  title: string;
+  duration: string;
+  videoUrl: string;
+  isCompleted?: boolean;
+}
+
+export interface CourseSection {
+  id: number;
+  title: string;
+  totalLectures: number;
+  totalDuration: string;
+  lessons: Lesson[];
+}
+
+export interface Course {
+  id: number;
+  title: string;
+  description: string;
+  curriculum: CourseSection[];
+}
